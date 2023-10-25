@@ -1,57 +1,8 @@
 <script>
-export default {
-    data() {
-    return {
-      items: [
-        { id: Date.now(),task: "Primera",completed: false}
-      ],
-    };
-  },
-    methods:{
-  addItem() {
-    this.items.push({ id: Date.now(), task: this.currentValue, completed: false });
-    this.currentValue=''
-  },
-  removeItem() {
-    this.items = this.items.filter(item => item.completed === false);
-  },
-  modifyItem(item) {
-     const index = this.items.indexOf(item);  if (index !== -1) {
-    this.items[index].completed = !this.items[index].completed ;
-  }
-},
-handleSubmit(){
-    this.addItem()
-},
-    }
-}
 </script>
 <template>
-    <form class="container" @submit.prevent="handleSubmit">
-    <div class="header">
-        <input type="text" v-model="currentValue" />
-<button class="primary">Añadir</button>
-    </div>
-
-   </form>
-       <div class="containerL">
-         <div class="list" v-for="item in items" :key="item.id">
-          <div v-bind:class="{'no-text': item.completed === true,
-           'text': item.completed === false}" >
-            <button 
-  v-bind:class="{'button-completed-true': !item.completed ===true,
-   'button-completed-false': item.completed === false}"
-            @click="modifyItem(item)">{{item.completed === true? "✔": "" }}</button>
-            {{ item.task }} 
-</div>
-<hr>            
-          </div>
-          <button class="secondary" @click="removeItem" 
-          >Eliminar completados</button>
-      </div>
 </template>
-
-<style scoped>
+<style>
 
 .container  {
   background-color:white;
