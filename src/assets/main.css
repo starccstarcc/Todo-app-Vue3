@@ -7,10 +7,10 @@
   max-width: 1280px; 
   margin: 0 auto;
   padding: 2em;
+  padding-bottom: 40px;
   background: #dfe0e2b1;
   font-weight: normal;
 }
-
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -25,39 +25,4 @@
   -webkit-text-size-adjust: 100%; 
   transition:
   color 0.5s,
-}
-
-@media (prefers-color-scheme: light) {
-  .button-completed-true {
-    background-color: white;
-  }
-  .button-completed-false  {
-    background-color: white; 
-  }
-  .header input{
-    background-color: grey;
-  }
-  button {
-    color: white;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-   :root {
-    color: white;
-  } 
-.container .list {
-  color: cyan;
-
-}
-  button {
-    color: white;
-  }
-  .button-completed-true {
-    background-color: dimgray;
-    
-  }
-  .button-completed-false  {
-    background-color: dimgray; 
-  }
 }
