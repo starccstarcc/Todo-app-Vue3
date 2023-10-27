@@ -8,9 +8,7 @@ export default {
 },
  data() {
     return {
-     items: [
-        { id: Date.now(),task: "Primera",completed: false}
-      ],
+     items: [],
     };
   },
   methods: {
@@ -21,12 +19,9 @@ export default {
 }
 </script>
 <template>
-  <Header :items="items"
-  ></Header>
- <TaskForm 
- :items="items" 
- @removeItem="removeItem"
- ></TaskForm>
+ <Header :items="items"/>
+ <TaskForm :items="items" 
+ @removeItem="removeItem"/>
 </template>
 <style scoped>
 </style>

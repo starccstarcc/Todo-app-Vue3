@@ -22,8 +22,9 @@ export default {
 }
 </script>
 <template>
-     <div class="container-form">
-         <div 
+     <div class="container-form" >
+         <div
+         v-if="items.length"
          class="list" 
          v-for="item in items" 
          :key="item.id">
@@ -36,8 +37,8 @@ export default {
     >{{item.completed === true? "✔": "" }}
     </button>
             {{ item.task }}
+            <hr class="lineFormDivisory">            
         </div>
-<hr class="lineFormDivisory">            
 </div>
 <Button 
 :disabled='!this.items.filter((objectToDelete) => objectToDelete.completed).length'
@@ -51,10 +52,9 @@ class='secondary'
   background-color:white;
   border-radius: 2px;
   margin-bottom: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 50px;
   width: 100%;
   box-shadow: 3px 3px 3px lightgray
-
 }
 
 .list {
@@ -80,7 +80,7 @@ class='secondary'
   .container  {
   background-color:white;
   border-radius: 2px;
-  margin-bottom: 20px;
+  margin-bottom: 1px;
   padding: 13px;
   display: flex;
   box-shadow: 3px 3px 3px lightgray;

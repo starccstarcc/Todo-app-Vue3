@@ -1,43 +1,65 @@
 <script>
  import Button from './Button.vue'
+ import Error from './Error.vue'
  export default {    
     props: {
-      items: Object, 
+      items: Object,
     },
     emits: ['input'],
     components: {
-        Button
+        Button,
+        Error
+    },
+    data() {
+      return {
+        newItem: '',
+        inputError: false,
+      };
     },
     methods:{
-  addItem() {
-    this.items.push({ id: Date.now(), task: this.currentValue, completed: false });
-    this.currentValue='' 
-  },
-  handleSubmit(){
-    this.addItem()
+addItem() {
+            if (this.newItem.trim() === '') {
+                console.log(this.newItem.trim());
+          this.inputError = true;
+          setTimeout(() => {
+            this.inputError = false;
+          }, 900);
+          return; 
+        }
+        this.items.push({ id: Date.now(), task: this.newItem, completed: false });
+    this.newItem='' 
 },
 }    
  }
 </script>
 <template>
-<form 
+<div 
 class="container" 
-@submit.prevent="handleSubmit"
+@submit.prevent="addItem"
 >
       <div class="header">
-          <input 
-          type="text" 
-          v-model="currentValue" 
-          />
+          <input
+        type="text"
+        v-model="newItem"
+        @keyup.enter="addItem"
+      />
   <Button 
   msg="Añadir" 
   class="primary"
+  @click="addItem"
   ></Button>
       </div>
-     </form>
+     </div>
+<Error v-if="inputError" msg="Ingrese una tarea por favor"></Error>
 </template>
 <style scoped>
 
+.hola {
+    background-color: aquamarine;
+}
+.none {
+    background-color: blue;
+}
 .container  {
   background-color:white;
   border-radius: 2px;

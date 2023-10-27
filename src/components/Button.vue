@@ -1,4 +1,4 @@
-
+<!-- Arreglar posicion del boton a la derecha al fondo-->
 <script>
  export default {
      props:{
@@ -62,9 +62,9 @@ button[disabled]:hover {
         .container-form .secondary {
             position: absolute; 
             position:-webkit-sticky;
-             left: 30%;
-           margin-top: 20px;
-        } 
+             margin-left: 20px;
+           margin-top: 6px;
+        }  
 
 @media (prefers-color-scheme: light) {
   .button-completed-true {
