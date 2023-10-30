@@ -1,28 +1,28 @@
+<template>
+ <InputBar :files="files"/>
+ <TaskForm :files="files" 
+ @removeItem="removeItem"/>
+</template>
 <script>
-import Header from './components/Header.vue'
+import InputBar from './components/InputBar.vue'
 import TaskForm from './components/TaskForm.vue';
 export default {
   components: {
-    Header,
+    InputBar,
     TaskForm,
 },
  data() {
     return {
-     items: [],
+     files: [],
     };
   },
   methods: {
     removeItem() {
-    this.items = this.items.filter(item => item.completed === false);
+    this.files = this.files.filter(item => item.completed === false);
   },
   }
 }
 </script>
-<template>
- <Header :items="items"/>
- <TaskForm :items="items" 
- @removeItem="removeItem"/>
-</template>
 <style scoped>
 </style>
 

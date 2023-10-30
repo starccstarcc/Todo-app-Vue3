@@ -18,6 +18,7 @@ coverage
 /cypress/screenshots/
 
 # Editor directories and files
+/Users/ramirop/Documents/js/todo-vue/src/Correcciones.vue
 .vscode/*
 !.vscode/extensions.json
 .idea

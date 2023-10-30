@@ -1,32 +1,9 @@
-<script>
-import Button from './Button.vue';
-export default {
-    props: {
-        items: Object,
-    },
-    methods: {
-        removeItem() {
-            this.$emit('removeItem');
-        },
-        modifyItem(item) {
-            const index = this.items.indexOf(item);
-            if (index !== -1) {
-                this.items[index].completed = !this.items[index].completed;
-            }
-        },
-        handleSubmit() {
-            this.addItem();
-        },
-    },
-    components: { Button },
-}
-</script>
 <template>
      <div class="container-form" >
          <div
-         v-if="items.length"
+         v-if="files.length"
          class="list" 
-         v-for="item in items" 
+         v-for="item in files" 
          :key="item.id">
         <div 
  v-bind:class="{'no-text': item.completed === true,'text': item.completed === false}" >
@@ -41,12 +18,37 @@ export default {
         </div>
 </div>
 <Button 
-:disabled='!this.items.filter((objectToDelete) => objectToDelete.completed).length'
-msg="Eliminar completados"
+:disabled='!this.files.filter((objectToDelete) => objectToDelete.completed).length'
 class='secondary'
-@click="removeItem"/>
+@click="removeItem">Eliminar completados</Button>
       </div>
 </template>
+<script>
+import Button from './Button.vue';
+
+export default {
+    props: {
+        files: Object,
+    },
+    methods: {
+        removeItem() {
+            this.$emit('removeItem');
+        },
+        modifyItem(item) {
+            const index = this.files.indexOf(item);
+            if (index !== -1) {
+                this.files[index].completed = !this.files[index].completed;
+            }
+        },
+        handleSubmit() {
+            this.addItem();
+        },
+    },
+    components: { Button },
+    
+}
+
+</script>
 <style scoped>
 .container-form {
   background-color:white;
@@ -87,7 +89,7 @@ class='secondary'
 }
 
 @media (prefers-color-scheme: dark) {
-      .header input{
+      .input-bar input{
         background-color:grey;
       }
       .container {
@@ -97,7 +99,7 @@ class='secondary'
    } 
 
    @media (prefers-color-scheme: dark) {
-      .header input{
+      .input-bar input{
         background-color:grey;
       }
       .container {

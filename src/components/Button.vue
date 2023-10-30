@@ -1,17 +1,10 @@
-<!-- Arreglar posicion del boton a la derecha al fondo-->
-<script>
- export default {
-     props:{
-         msg: {
-             type: String,
-             required: true
-      }
-    }
- }
-</script>
 <template>
-      <button>{{msg}}</button>
+      <button>
+        <slot></slot>
+       </button>
 </template>
+<script>
+</script>
 <style>
 button  {
     border:none;

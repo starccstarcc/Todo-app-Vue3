@@ -1,17 +1,11 @@
 <template>
       <p 
       class="error"
-      >{{ msg }}
+      ><slot></slot>
     </p>
 </template>
 <script>
  export default {
- props:{
-         msg: {
-             type: String,
-             required: true
-      },
-    }
  }
 </script>
 <style>

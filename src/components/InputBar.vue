@@ -1,23 +1,44 @@
+ <template>
+ <div 
+ class="container" 
+ @submit.prevent="addItem"
+ >
+       <div class="input-bar">
+           <input
+         type="text"
+         v-model="newItem"
+         @keyup.enter="addItem"
+       />
+   <Button 
+   class="primary"
+   @click="addItem"
+   >Añadir
+</Button>
+       </div>
+      </div>
+ <Error v-if="inputError" >Ingrese una tarea por favor</Error>
+ </template>
 <script>
  import Button from './Button.vue'
  import Error from './Error.vue'
  export default {    
     props: {
-      items: Object,
+      files: Object,
     },
     emits: ['input'],
     components: {
         Button,
-        Error
+        Error,
     },
     data() {
       return {
         newItem: '',
         inputError: false,
       };
+      
     },
     methods:{
-addItem() {
+    addItem() {
             if (this.newItem.trim() === '') {
                 console.log(this.newItem.trim());
           this.inputError = true;
@@ -26,40 +47,13 @@ addItem() {
           }, 900);
           return; 
         }
-        this.items.push({ id: Date.now(), task: this.newItem, completed: false });
+        this.files.push({ id: Date.now(), task: this.newItem, completed: false });
     this.newItem='' 
 },
 }    
  }
 </script>
-<template>
-<div 
-class="container" 
-@submit.prevent="addItem"
->
-      <div class="header">
-          <input
-        type="text"
-        v-model="newItem"
-        @keyup.enter="addItem"
-      />
-  <Button 
-  msg="Añadir" 
-  class="primary"
-  @click="addItem"
-  ></Button>
-      </div>
-     </div>
-<Error v-if="inputError" msg="Ingrese una tarea por favor"></Error>
-</template>
 <style scoped>
-
-.hola {
-    background-color: aquamarine;
-}
-.none {
-    background-color: blue;
-}
 .container  {
   background-color:white;
   border-radius: 2px;
@@ -69,14 +63,14 @@ class="container"
   box-shadow: 3px 3px 3px lightgray;
 }
 
-.header {
+.input-bar {
   width: 100%;
   display: flex;
     max-width: 100%;
     position: relative;
   }
 
-.header input {
+.input-bar input {
   display: block;
     padding: 1rem 2rem;
     width: 100%;
@@ -90,7 +84,7 @@ class="container"
     border-radius: 2px;
   }
 
-.header button {
+.input-bar button {
   display: block;
     height: 70%;
   
@@ -101,7 +95,7 @@ class="container"
   }
 
   @media (prefers-color-scheme: dark) {
-      .header input{
+      .input-bar input{
         background-color:grey;
       }
       .container {
@@ -111,7 +105,7 @@ class="container"
    } 
 
    @media (prefers-color-scheme: dark) {
-      .header input{
+      .input-bar input{
         background-color:grey;
       }
       .container {
