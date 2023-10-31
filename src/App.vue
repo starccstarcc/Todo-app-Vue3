@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     removeTaskObject() {
-    this.files = this.files.filter(taskObject => taskObject.completed === false);
+    this.files = this.files.filter(taskObject => !taskObject.completed);
   },
   }
 }

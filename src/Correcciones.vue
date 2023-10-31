@@ -4,7 +4,7 @@
 
 App.vue:
 
-- En la linea 18 items.completed === false. Cuando sea === false o === true tenemos una mejor forma de hacerlo.
+=== CORREJIDO !! === - En la linea 18 items.completed === false. Cuando sea === false o === true tenemos una mejor forma de hacerlo.
 === CORREJIDO !! === - En el template, si el componente no tiene ningún slot, no hace falta que tenga etiqueta de apertura y cierre. Basta con <InputBar :items=“ítems” />
 === CORREJIDO !! === - El nombre items. ¿Que son los items? ¿Clientes, productos…?
 
@@ -21,7 +21,7 @@ Header.vue. === CORREJIDO !! ===
 TaskForm.vue
 
 
-- === true o === false, tenemos mejores maneras de escribirlo
+=== CORREJIDO !! === - === true o === false, tenemos mejores maneras de escribirlo
 - Las clases que añades al button deberían ser parte del componente button y dependiendo de la prop que le pasaras que aplicara unos estilos u otros
 
 

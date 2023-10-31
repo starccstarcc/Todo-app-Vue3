@@ -6,12 +6,12 @@
          v-for="taskObject in files" 
          :key="taskObject.id">
         <div 
- v-bind:class="{'no-text': taskObject.completed === true,'text': taskObject.completed === false}" >
+ v-bind:class="{'no-text': taskObject.completed,'text': !taskObject.completed}" >
     <button 
-  v-bind:class="{'button-completed-true': taskObject.completed ===true,
-   'button-completed-false': taskObject.completed === false}"
+  v-bind:class="{'button-completed-true': taskObject.completed,
+   'button-completed-false': !taskObject.completed}"
     @click="modifyTaskObject(taskObject)"
-    >{{taskObject.completed === true? "✔": "" }}
+    >{{taskObject.completed? "✔": "" }}
     </button>
             {{ taskObject.task }}
             <hr class="lineFormDivisory">            
