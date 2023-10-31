@@ -4,9 +4,9 @@
 
 App.vue:
 
-- En la linea 18 item.completed === false. Cuando sea === false o === true tenemos una mejor forma de hacerlo.
+- En la linea 18 items.completed === false. Cuando sea === false o === true tenemos una mejor forma de hacerlo.
 === CORREJIDO !! === - En el template, si el componente no tiene ningún slot, no hace falta que tenga etiqueta de apertura y cierre. Basta con <InputBar :items=“ítems” />
-- El nombre items. ¿Que son los items? ¿Clientes, productos…?
+=== CORREJIDO !! === - El nombre items. ¿Que son los items? ¿Clientes, productos…?
 
 Button.vue === CORREJIDO !! ===
 
@@ -16,7 +16,7 @@ Button.vue === CORREJIDO !! ===
 Header.vue. === CORREJIDO !! ===
 
 - El nombre es confuso, no veo que sea un Header si no toda la aplicación.
-- Tienes una función que se llama handleSubmit que a su vez lo único que hacer es llamar a addItem, ¿para que tenemos una función que solo llama a otra función?
+- Tienes una función que se llama handleSubmit que a su vez lo único que hacer es llamar a additems, ¿para que tenemos una función que solo llama a otra función?
 
 TaskForm.vue
 

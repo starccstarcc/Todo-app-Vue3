@@ -1,17 +1,17 @@
  <template>
  <div 
  class="container" 
- @submit.prevent="addItem"
+ @submit.prevent="addTaskObject"
  >
        <div class="input-bar">
            <input
          type="text"
-         v-model="newItem"
-         @keyup.enter="addItem"
+         v-model="newTaskObject"
+         @keyup.enter="addTaskObject"
        />
    <Button 
    class="primary"
-   @click="addItem"
+   @click="addTaskObject"
    >Añadir
 </Button>
        </div>
@@ -32,23 +32,23 @@
     },
     data() {
       return {
-        newItem: '',
+        newTaskObject: '',
         inputError: false,
       };
       
     },
     methods:{
-    addItem() {
-            if (this.newItem.trim() === '') {
-                console.log(this.newItem.trim());
+    addTaskObject() {
+            if (this.newTaskObject.trim() === '') {
+                console.log(this.newTaskObject.trim());
           this.inputError = true;
           setTimeout(() => {
             this.inputError = false;
           }, 900);
           return; 
         }
-        this.files.push({ id: Date.now(), task: this.newItem, completed: false });
-    this.newItem='' 
+        this.files.push({ id: Date.now(), task: this.newTaskObject, completed: false });
+    this.newTaskObject='' 
 },
 }    
  }

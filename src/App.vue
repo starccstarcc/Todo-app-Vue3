@@ -1,7 +1,7 @@
 <template>
  <InputBar :files="files"/>
  <TaskForm :files="files" 
- @removeItem="removeItem"/>
+ @removeTaskObject="removeTaskObject"/>
 </template>
 <script>
 import InputBar from './components/InputBar.vue'
@@ -17,8 +17,8 @@ export default {
     };
   },
   methods: {
-    removeItem() {
-    this.files = this.files.filter(item => item.completed === false);
+    removeTaskObject() {
+    this.files = this.files.filter(taskObject => taskObject.completed === false);
   },
   }
 }

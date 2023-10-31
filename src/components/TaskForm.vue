@@ -3,24 +3,24 @@
          <div
          v-if="files.length"
          class="list" 
-         v-for="item in files" 
-         :key="item.id">
+         v-for="taskObject in files" 
+         :key="taskObject.id">
         <div 
- v-bind:class="{'no-text': item.completed === true,'text': item.completed === false}" >
+ v-bind:class="{'no-text': taskObject.completed === true,'text': taskObject.completed === false}" >
     <button 
-  v-bind:class="{'button-completed-true': item.completed ===true,
-   'button-completed-false': item.completed === false}"
-    @click="modifyItem(item)"
-    >{{item.completed === true? "✔": "" }}
+  v-bind:class="{'button-completed-true': taskObject.completed ===true,
+   'button-completed-false': taskObject.completed === false}"
+    @click="modifyTaskObject(taskObject)"
+    >{{taskObject.completed === true? "✔": "" }}
     </button>
-            {{ item.task }}
+            {{ taskObject.task }}
             <hr class="lineFormDivisory">            
         </div>
 </div>
 <Button 
 :disabled='!this.files.filter((objectToDelete) => objectToDelete.completed).length'
 class='secondary'
-@click="removeItem">Eliminar completados</Button>
+@click="removeTaskObject">Eliminar completados</Button>
       </div>
 </template>
 <script>
@@ -31,17 +31,17 @@ export default {
         files: Object,
     },
     methods: {
-        removeItem() {
-            this.$emit('removeItem');
+        removeTaskObject() {
+            this.$emit('removeTaskObject');
         },
-        modifyItem(item) {
-            const index = this.files.indexOf(item);
+        modifyTaskObject(taskObject) {
+            const index = this.files.indexOf(taskObject);
             if (index !== -1) {
                 this.files[index].completed = !this.files[index].completed;
             }
         },
         handleSubmit() {
-            this.addItem();
+            this.addTaskObject();
         },
     },
     components: { Button },
