@@ -1,6 +1,6 @@
  <template>
  <div 
- class="container" 
+ class="container"
  @submit.prevent="addTaskObject"
  >
        <div class="input-bar">
@@ -10,7 +10,7 @@
          @keyup.enter="addTaskObject"
        />
    <Button 
-   class="primary"
+   buttonClass="primary"
    @click="addTaskObject"
    >Añadir
 </Button>
@@ -18,18 +18,23 @@
       </div>
  <Error v-if="inputError" >Ingrese una tarea por favor</Error>
  </template>
+
 <script>
+
  import Button from './Button.vue'
  import Error from './Error.vue'
- export default {    
+ export default { 
     props: {
       files: Object,
     },
+
     emits: ['input'],
+
     components: {
         Button,
         Error,
     },
+    
     data() {
       return {
         newTaskObject: '',
@@ -40,7 +45,6 @@
     methods:{
     addTaskObject() {
             if (this.newTaskObject.trim() === '') {
-                console.log(this.newTaskObject.trim());
           this.inputError = true;
           setTimeout(() => {
             this.inputError = false;
@@ -95,15 +99,11 @@
   }
 
   @media (prefers-color-scheme: dark) {
-      .input-bar input{
-        background-color:grey;
-      }
       .container {
         background-color:dimgrey;
         box-shadow: 3px 3px 3px gray
       }
    } 
-
    @media (prefers-color-scheme: dark) {
       .input-bar input{
         background-color:grey;

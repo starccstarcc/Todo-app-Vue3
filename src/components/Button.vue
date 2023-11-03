@@ -1,9 +1,31 @@
 <template>
-      <button>
-        <slot></slot>
-       </button>
+   <button 
+   v-if="buttonClass"
+   :class="buttonClass" 
+   @click="handleClick">
+       <slot></slot>
+    </button>
+         <button v-if="toggle ==false || toggle ==true" 
+         @click="handleClick"
+     v-bind:class="{'button-completed-true': toggle,
+      'button-completed-false': !toggle}"
+       > 
+       {{toggle? "✔": "" }} 
+       </button> 
+      
 </template>
 <script>
+ export default {
+    props: {
+      toggle: String, 
+      buttonClass: String 
+    },
+    methods: {
+      handleClick() {
+        this.$emit('click');
+      },
+    },
+  };
 </script>
 <style>
 button  {
@@ -35,12 +57,12 @@ button[disabled]:hover {
     cursor:pointer;
     }
     .button-completed-false {
-        border: 3px solid lightseagreen; 
-        color: lightseagreen;
-        margin-right: 10px;
-        border-radius: 6px;
-        margin-left: 8px;
-   }
+      border: 3px solid lightseagreen; 
+      color: lightseagreen;
+      margin-right: 10px;
+      border-radius: 6px;
+      margin-left: 8px;
+    }
       .button-completed-true {
         color: lightseagreen;
         margin-right: 6px;

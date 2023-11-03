@@ -1,7 +1,7 @@
 <template>
  <InputBar :files="files"/>
  <TaskForm :files="files" 
- @removeTaskObject="removeTaskObject"/>
+ @removeTaskObject="removeTaskObject"/> 
 </template>
 <script>
 import InputBar from './components/InputBar.vue'

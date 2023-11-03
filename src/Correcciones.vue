@@ -18,11 +18,11 @@ Header.vue. === CORREJIDO !! ===
 - El nombre es confuso, no veo que sea un Header si no toda la aplicación.
 - Tienes una función que se llama handleSubmit que a su vez lo único que hacer es llamar a additems, ¿para que tenemos una función que solo llama a otra función?
 
-TaskForm.vue
+TaskForm.vue === CORREJIDO !! ===
 
 
 === CORREJIDO !! === - === true o === false, tenemos mejores maneras de escribirlo
-- Las clases que añades al button deberían ser parte del componente button y dependiendo de la prop que le pasaras que aplicara unos estilos u otros
+=== CORREJIDO !! === - Las clases que añades al button deberían ser parte del componente button y dependiendo de la prop que le pasaras que aplicara unos estilos u otros
 
 
 
