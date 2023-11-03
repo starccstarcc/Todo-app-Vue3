@@ -7,8 +7,11 @@
          :key="taskObject.id">
         <div 
  v-bind:class="{'no-text': taskObject.completed,'text': !taskObject.completed}" >
-    <Button :toggle="taskObject.completed" @click="modifyTaskObject(taskObject)" ></Button>
-            {{ taskObject.task }}
+    <Button
+    :toggle="taskObject.completed" 
+    @click="modifyTaskObject(taskObject)">
+  </Button>
+ {{ taskObject.task }} 
             <hr class="lineFormDivisory">            
         </div>
 </div>
@@ -67,12 +70,14 @@ Button    },
     padding-top: 5px;
     padding-inline: 10px;
     position: relative;
+    font-size:19px;
   }
   
 .no-text {
     text-decoration: line-through  lightseagreen 2px;
     color: rgb(162, 161, 161);  
     padding: 2px;
+    font-size: 19px;
   }
 
 .text {

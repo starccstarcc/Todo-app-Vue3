@@ -83,7 +83,7 @@
     color:black;
     text-align: left;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 19px;
     outline:white;
     border-radius: 2px;
   }
